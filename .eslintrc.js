@@ -6,10 +6,14 @@ module.exports = {
     },
     "globals": {
     },
+    "parser": "babel-eslint",
     "extends": "eslint:recommended",
     "parserOptions": {
         "ecmaVersion": 6,
-        "sourceType": "script"
+        "sourceType": "script",
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true
+        }
     },
     "rules": {
         "indent": [
