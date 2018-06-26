@@ -8,6 +8,7 @@ const config = require('../config/defaultConfig');
 const mime = require('./mime');
 const compress = require('./compress');
 const range = require('./range');
+const isFresh = require('./cache');
 
 const tplPath = path.join(__dirname, '../template/dir.tpl');
 // 获取模板的绝对路径
@@ -20,6 +21,14 @@ module.exports = async function (req, res, filePath) {
         if (stats.isFile()) {
             const contentType = mime(filePath);
             res.setHeader('Content-Type', contentType);
+
+            // 如果是需要用缓存的，改变状态码后，直接return
+            if (isFresh(stats, req, res)) {
+                res.statusCode = 304;
+                res.end();
+                return;
+            }
+
             // 速度太慢,所以用流的方式
             /* fs.readFile(filePath, (err, data) => {
                 res.end(data);
