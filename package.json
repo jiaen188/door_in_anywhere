@@ -1,8 +1,11 @@
 {
-  "name": "anydoor",
+  "name": "door_in_anywhere",
   "version": "1.0.0",
   "description": "NodeJS Static Web server",
-  "main": "build/index.js",
+  "main": "src/app.js",
+  "bin": {
+    "door_in_anywhere": "bin/door_in_anywhere"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
@@ -14,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jiaen188/anydoor.git"
+    "url": "git+https://github.com/jiaen188/door_in_anywhere.git"
   },
   "keywords": [
     "static",
@@ -24,11 +27,12 @@
   "email": "18258335270@163.com",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jiaen188/anydoor/issues"
+    "url": "https://github.com/jiaen188/door_in_anywhere/issues"
   },
-  "homepage": "https://github.com/jiaen188/anydoor#readme",
+  "homepage": "https://github.com/jiaen188/door_in_anywhere#readme",
   "dependencies": {
-    "chalk": "^2.1.0"
+    "chalk": "^2.1.0",
+    "yargs": "^8.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
